@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Yes No Prank</title>
+
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: white;
+    }
+
+    .slide1 {
+      position: relative;
+      width: 420px;
+      height: 260px;
+      text-align: center;
+      border-radius: 12px;
+      background: #020617;
+      padding-top: 30px;
+    }
+
+    h2 {
+      margin-bottom: 40px;
+    }
+
+    button {
+      padding: 12px 26px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background: #22c55e;
+      color: black;
+      margin-right: 20px;
+    }
+
+    #no {
+      position: absolute;
+      background: #ef4444;
+      color: white;
+      left: 230px;
+      top: 150px;
+    }
+
+    .slide2 {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .slide2 h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      animation: pop 0.6s ease;
+    }
+
+    .slide2 img {
+      width: 300px;
+      max-width: 80%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(255,255,255,0.2);
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SLIDE 1 -->
+  <div class="slide1" id="slide1">
+    <h2>Are YOU CHIPKALI? 😏</h2>
+    <button id="yes">YES</button>
+    <button id="no">NO</button>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide2" id="slide2">
+    <h1>I KNOW YOU ARE HAAA!! 🤣</h1>
+    <img src="https://media1.tenor.com/m/h7vcyDmlpJYAAAAC/laughing-laughing-cat.gif" alt="Laughing Cat">
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const slide1 = document.getElementById("slide1");
+    const slide2 = document.getElementById("slide2");
+
+    // NO button runs away
+    noBtn.addEventListener("mouseenter", () => {
+      const maxX = slide1.clientWidth - noBtn.clientWidth;
+      const maxY = slide1.clientHeight - noBtn.clientHeight;
+
+      noBtn.style.left = Math.random() * maxX + "px";
+      noBtn.style.top = Math.random() * maxY + "px";
+    });
+
+    // YES shows slide 2
+    yesBtn.addEventListener("click", () => {
+      slide1.style.display = "none";
+      slide2.style.display = "flex";
+    });
+  </script>
+
+</body>
+</html>
